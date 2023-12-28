@@ -31,6 +31,19 @@
 //     }
 //   ];
 
+// 將資料取得來源，改為透過 axios 至 網址上取得資料
+// 先宣告一個名為 data 的空陣列
+let data = [];
+// 透過 axios 取得資料
+axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAPI-lv1.json')
+    .then(function (response) {
+        data = response.data;
+        // console.log(data);
+        renderData(data);
+    })
+    .catch(function (err) {
+        console.log(err);
+    });
 // 宣告一個 ticketCardArea 的變數，值為 抓取 document 文件中 class名稱為 ticketCard-area
 const ticketCardArea = document.querySelector(".ticketCard-area");
 // 宣告一個 searchResult 的變數，值為 抓取 document 文件中 id名稱為 searchResult-text
